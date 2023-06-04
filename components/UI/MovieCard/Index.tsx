@@ -17,6 +17,10 @@ const MovieCard: FC = () => {
         alt="widow"
       />
       <p className="absolute text-white">Black Widow</p>
+      <div className={styles.add}>
+        <Image className="cursor-pointer" src='/image/add.svg' width={24} height={24} alt='plus'/>
+        <p>Add to my list</p>
+      </div>
     </div>
   );
 };

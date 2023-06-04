@@ -10,7 +10,7 @@ import Skeleton from "@/components/UI/Skeleton/Index";
 export default function Home() {
   return (
     <main>
-   <Skeleton/>
+   <MovieCard/>
     </main>
   )
 }
