@@ -4,7 +4,7 @@
   align-items: flex-start;
   position: relative;
   width: 282px;
-  height: 480px;
+  height: 520px;
   border-radius: 12px;
   background: rgba(32, 40, 62, 0.8);
 
@@ -36,5 +36,20 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
+  }
+
+  .add {
+    position: absolute;
+    display: flex;
+    top: 472px;
+    left: 18px;
+
+    p {
+      margin-left: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      color: #7B6EF6;
+    }
   }
 }
