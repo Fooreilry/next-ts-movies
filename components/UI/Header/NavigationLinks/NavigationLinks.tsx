@@ -24,7 +24,7 @@ const NavigationLinks = () => {
         >
           Suggest me
           <Image
-            src="/arrow-right.svg"
+            src="/image/arrow-right.svg"
             alt="suggest arrow"
             width={16}
             height={16}
