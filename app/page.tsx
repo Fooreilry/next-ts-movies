@@ -8,7 +8,7 @@ import MovieCard from "@/components/UI/MovieCard/Index";
 export default function Home() {
   return (
     <main>
-   <MovieCard/>
+   <Input/>
     </main>
   )
 }
