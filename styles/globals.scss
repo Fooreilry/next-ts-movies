@@ -11,3 +11,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+input:focus {
+  outline: none;
+}
+img {
+  max-width: 100%;
+}
