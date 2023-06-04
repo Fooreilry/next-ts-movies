@@ -1,7 +1,8 @@
-import './globals.scss'
-//import { Inter } from 'next/font/google'
+import Navbar from '@/components/UI/Header/Navbar';
+import '../styles/globals.scss'
+import { Poppins } from 'next/font/google'
 
-//const inter = Inter({ subsets: ['latin'] })
+const inter = Poppins({ weight: ["400", "600", "700"], style: ["normal"] }); 
 
 // оставлено для лучших времен
 //export const metadata = {
@@ -16,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body className="container mx-auto px-4">{children}</body>
+      <body className={inter.className}>
+        <Navbar/>
+        <main className='container mx-auto px-4'>{children}</main>
+      </body>
     </html>
-  )
+  );
 }
