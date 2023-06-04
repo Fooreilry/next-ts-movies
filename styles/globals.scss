@@ -7,9 +7,13 @@
 
 body {
   background-color: #121829;
- 
+  background-image: url('/image/Background.png');
+  background-size: cover;
 }
 
 input:focus {
-    outline: none;
-  }
+  outline: none;
+}
+img {
+  max-width: 100%;
+}
