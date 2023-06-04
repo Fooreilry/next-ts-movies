@@ -1,0 +1,23 @@
+.switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 368px;
+  height: 56px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+
+  ul {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    li {
+      padding: 8px 32px 8px 32px;
+      &.active {
+        background: #7b6ef6;
+        border-radius: 8px;
+      }
+    }
+  }
+}
