@@ -1,0 +1,13 @@
+.button {
+  display: inline-block;
+  cursor: pointer;
+  background: #7b6ef6;
+  padding: 18px 34px 18px 34px;
+  border: 2px solid #7b6ef6;
+  border-radius: 12px;
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+}
