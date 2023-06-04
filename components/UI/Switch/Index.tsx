@@ -9,7 +9,7 @@ type Item = {
 };
 
 const Switch: FC = () => {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState<number>(0);
 
   const items: Item[] = [
     { label: "All", path: "/" },
