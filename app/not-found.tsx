@@ -14,7 +14,7 @@ const NotFound:NextPage = () => {
         actually exist.
       </p>
       <div className="flex items-center justify-center">
-      <Button />
+      <Button text='Go Home' />
       </div>
     </div>
   );
