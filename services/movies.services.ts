@@ -1,4 +1,4 @@
-import { GetMoviesResponse } from "@/types/Responses";
+import { FullMovieData, GetMoviesResponse } from "@/types/Responses";
 import axios, { AxiosResponse } from "axios";
 
 
@@ -23,4 +23,18 @@ export const MoviesServices = {
       console.log((error as Error).message);
     }
   },
+  async getMovie(id: number): Promise<FullMovieData> {
+    try {
+      const request = await fetch<FullMovieData>(
+        `${process.env.BASE_URL}/v1.3/movie/${id}`,
+        {
+          method: "GET",
+          headers: headers,
+        }
+      );
+      return await request.json()
+    } catch (error) {
+      console.log((error as Error).message)
+    }
+  }
 };

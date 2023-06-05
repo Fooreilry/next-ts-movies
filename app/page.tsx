@@ -27,7 +27,7 @@ export default async function Home() {
 
 
 async function getMovies(): GetMoviesResponse {
-  const moviesData = await MoviesServices.getAllMovies();
+  const moviesData = await MoviesServices.getMovie(666);
   console.log(moviesData);
 
   return moviesData;

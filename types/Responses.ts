@@ -1,5 +1,12 @@
 export interface GetMoviesResponse {
-  docs: Array<{
+  docs: Array<FullMovieData>;
+  total: number;
+  limit: number;
+  page: number;
+  pages: number;
+}
+
+export interface FullMovieData {
     id: number;
     externalId: {
       kpHD: string;
@@ -171,10 +178,5 @@ export interface GetMoviesResponse {
       name: string;
       url: string;
       previewUrl: string;
-    }>;
-  }>;
-  total: number;
-  limit: number;
-  page: number;
-  pages: number;
+    }>
 }
