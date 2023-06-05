@@ -1,11 +1,16 @@
-import { FC } from "react"
-import styles from './Button.module.scss'
+import { FC } from "react";
+import styles from "./Button.module.scss";
 
-const Button:FC = () => {
+type TButton = {
+  text: string;
+};
+
+const Button: FC<TButton> = ({ text }) => {
   return (
     <div className={styles.button}>
-         <button className="text-white">Search</button>
+      <button className="text-white">{text}</button>
     </div>
-  )
-}
-export default Button
+  );
+};
+
+export default Button;
