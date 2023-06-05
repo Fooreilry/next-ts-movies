@@ -3,11 +3,11 @@ import Button from '../components/UI/Button/Index';
 import Heading from "@/components/UI/Heading/Index";
 import Switch from "@/components/UI/Switch/Index";
 import MovieCard from "@/components/UI/MovieCard/Index";
-import Header from "@/components/Header/Index";
 import Skeleton from "@/components/UI/Skeleton/Index";
 import { MoviesServices } from "@/services/movies.services";
 import { GetMoviesResponse } from "@/types/Responses";
 import { GetServerSideProps } from "next";
+import ButtonLink from "@/components/UI/Button/buttonLink";
 
 
 export default async function Home() {
