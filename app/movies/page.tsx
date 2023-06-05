@@ -5,10 +5,7 @@ import React from 'react'
 function MoviesPage() {
   return (
     <div>
-      {/* <ItemsList
-        items={moviesData}
-        renderItems={(movie: any) => <MovieCard/>}
-      /> */}
+      
     </div>
   )
 }
