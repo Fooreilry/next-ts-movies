@@ -2,7 +2,7 @@ import Navbar from '@/components/UI/Header/Navbar';
 import '../styles/globals.scss'
 import { Poppins } from 'next/font/google'
 
-const inter = Poppins({ weight: ["400", "600", "700"], style: ["normal"] }); 
+const inter = Poppins({ weight: ["400", "600", "700"], style: ["normal"], subsets: ["latin"] }); 
 
 // оставлено для лучших времен
 //export const metadata = {
@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ru">
+    <html lang="en">
       <body className={inter.className}>
         <Navbar/>
         <main className='container mx-auto px-4'>{children}</main>
