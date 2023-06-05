@@ -7,7 +7,7 @@ const Header = () => {
     <nav className="w-full">
       <div className="mx-auto px-4 flex items-center py-4 justify-between pl-28 pr-28">
         <Link href={"/"}>
-          <Image src="/image/logo.svg" alt="movie logo" width={40} height={40} />
+          <Image src="/image/logo.svg" alt="movie logo" width={40} height={40} priority />
         </Link>
         <NavigationLinks />
       </div>
