@@ -1,4 +1,3 @@
-'use client'
 import Button from "@/components/UI/Button/Index";
 import { NextPage } from "next";
 import Image from "next/image";
