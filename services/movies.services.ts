@@ -13,7 +13,7 @@ export const MoviesServices = {
         headers: headers,
       });
 
-      return request.json();
+      return await request.json();
     } catch (error) {
       console.log((error as Error).message);
       throw error;

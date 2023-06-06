@@ -1,5 +1,5 @@
-import Input from "@/components/UI/Input/Index"
-import Button from '../components/UI/Button/Index';
+import Input from "@/components/UI/Input/Index";
+import Button from "../components/UI/Button/Index";
 import Heading from "@/components/UI/Heading/Index";
 import Switch from "@/components/UI/Switch/Index";
 import MovieCard from "@/components/UI/MovieCard/Index";
@@ -14,9 +14,16 @@ export default async function Home() {
     <main>
       <div>
         <ItemsList
-        items={movies}
-        renderItem={(movie: any) => <MovieCard key={movie.id} id={movie.id} name={movie.name} poster={movie.poster.url}   />}
-      />
+          items={movies}
+          renderItem={(movie: any) => (
+            <MovieCard
+              key={movie.id}
+              id={movie.id}
+              name={movie.name}
+              poster={movie.poster.url}
+            />
+          )}
+        />
       </div>
       <MovieCard />
     </main>
@@ -26,6 +33,5 @@ export default async function Home() {
 async function getMovies(): Promise<FullMovieData[]> {
   const moviesResponse = await MoviesServices.getAllMovies();
   const movies = moviesResponse.docs;
-  return movies
+  return movies;
 }
-
