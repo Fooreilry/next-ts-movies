@@ -14,7 +14,7 @@ interface IMovie {
 }
 
 const MovieList: FC<{ movies: IMovie[] }> = ({ movies }) => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState<string>("");
   const debouncedValue = useDebounce<string>(searchValue, 500)
 
   const filteredMovies = movies.filter((movie) =>
@@ -28,7 +28,6 @@ const MovieList: FC<{ movies: IMovie[] }> = ({ movies }) => {
     event.preventDefault();
     console.log(`Searching for: ${searchValue}`);
   };
-
   return (
     <>
       <Input
