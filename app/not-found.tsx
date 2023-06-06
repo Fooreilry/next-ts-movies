@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import ButtonLink from "@/components/UI/Button/buttonLink";
+import ButtonLink from "@/components/UI/Button/ButtonLink";
 
 const NotFound: NextPage = () => {
   return (
