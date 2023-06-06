@@ -1,40 +1,34 @@
 import { FullMovieData, GetMoviesResponse } from "@/types/Responses";
-import axios, { AxiosResponse } from "axios";
-
 
 const headers = {
   "Content-Type": "application/json",
-  "X-API-KEY": process.env.TOKEN,
+  ...(process.env.TOKEN && { "X-API-KEY": process.env.TOKEN }),
 };
 
 export const MoviesServices = {
   async getAllMovies(): Promise<GetMoviesResponse> {
     try {
-      const request = await fetch<GetMoviesResponse>(
-        `${process.env.BASE_URL}/v1.3/movie`,
-        {
-          method: "GET",
-          headers: headers,
-        }
-      );
+      const request = await fetch(`${process.env.BASE_URL}/v1.3/movie`, {
+        method: "GET",
+        headers: headers,
+      });
 
-      return await request.json();
+      return request.json();
     } catch (error) {
       console.log((error as Error).message);
+      throw error;
     }
   },
   async getMovie(id: number): Promise<FullMovieData> {
     try {
-      const request = await fetch<FullMovieData>(
-        `${process.env.BASE_URL}/v1.3/movie/${id}`,
-        {
-          method: "GET",
-          headers: headers,
-        }
-      );
-      return await request.json()
+      const request = await fetch(`${process.env.BASE_URL}/v1.3/movie/${id}`, {
+        method: "GET",
+        headers: headers,
+      });
+      return await request.json();
     } catch (error) {
-      console.log((error as Error).message)
+      console.log((error as Error).message);
+      throw error;
     }
   }
 };

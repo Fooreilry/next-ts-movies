@@ -5,30 +5,27 @@ import Switch from "@/components/UI/Switch/Index";
 import MovieCard from "@/components/UI/MovieCard/Index";
 import Skeleton from "@/components/UI/Skeleton/Index";
 import { MoviesServices } from "@/services/movies.services";
-import { GetMoviesResponse } from "@/types/Responses";
-import { GetServerSideProps } from "next";
-import ButtonLink from "@/components/UI/Button/buttonLink";
-
+import { FullMovieData } from "@/types/Responses";
+import ItemsList from "@/components/ItemsList/ItemsList";
 
 export default async function Home() {
-  const moveis = await getMovies();
+  const movies = await getMovies();
   return (
     <main>
       <div>
-        {/* <ItemsList
+        <ItemsList
         items={movies}
-        renderItems={(movie: any) => <MovieCard key={movie.id} />}
-      /> */}
+        renderItem={(movie: any) => <MovieCard key={movie.id} id={movie.id} name={movie.name} poster={movie.poster.url}   />}
+      />
       </div>
       <MovieCard />
     </main>
   );
 }
 
-
-async function getMovies(): GetMoviesResponse {
-  const moviesData = await MoviesServices.getMovie(666);
-  console.log(moviesData);
-
-  return moviesData;
+async function getMovies(): Promise<FullMovieData[]> {
+  const moviesResponse = await MoviesServices.getAllMovies();
+  const movies = moviesResponse.docs;
+  return movies
 }
+
