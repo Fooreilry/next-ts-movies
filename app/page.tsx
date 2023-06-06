@@ -6,26 +6,14 @@ import MovieCard from "@/components/UI/MovieCard/Index";
 import Skeleton from "@/components/UI/Skeleton/Index";
 import { MoviesServices } from "@/services/movies.services";
 import { FullMovieData } from "@/types/Responses";
-import ItemsList from "@/components/ItemsList/ItemsList";
+
+import MovieList from "@/components/MovieList/Index";
 
 export default async function Home() {
   const movies = await getMovies();
   return (
     <main>
-      <div>
-        <ItemsList
-          items={movies}
-          renderItem={(movie: any) => (
-            <MovieCard
-              key={movie.id}
-              id={movie.id}
-              name={movie.name}
-              poster={movie.poster.url}
-            />
-          )}
-        />
-      </div>
-      <MovieCard />
+      <MovieList movies={movies} />
     </main>
   );
 }
