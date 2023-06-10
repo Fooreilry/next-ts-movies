@@ -3,18 +3,13 @@ import { FC, useState } from "react";
 import Image from "next/image";
 import styles from "./Input.module.scss";
 
-const Input: FC = () => {
-  const [value, setValue] = useState<string>("");
+interface IInput {
+  searchHandle: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  searchValue: string;
+}
 
-  const searchHandke = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-  };
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log(`Searching for: ${value}`);
-  };
-
+const Input: FC<IInput> = ({ searchHandle, handleSubmit, searchValue }) => {
   return (
     <form onSubmit={handleSubmit} className="relative ">
       <Image
@@ -28,8 +23,8 @@ const Input: FC = () => {
         className={styles.input}
         type="text"
         placeholder="Search Movies or TV Shows"
-        value={value}
-        onChange={searchHandke}
+        value={searchValue}
+        onChange={searchHandle}
       />
     </form>
   );
