@@ -4,18 +4,11 @@ import useDebounce from "@/hooks/useDebounce/Index";
 import Input from "../UI/Input/Index";
 import ItemsList from "../ItemsList/ItemsList";
 import MovieCard from "../UI/MovieCard/Index";
+import { FullMovieData } from "@/types/Responses";
 
-interface IMovie {
-  id: number;
-  name: string;
-  poster: {
-    url: string;
-  };
-}
-
-const MovieList: FC<{ movies: IMovie[] }> = ({ movies }) => {
+const MovieList: FC<{ movies: FullMovieData[] }> = ({ movies }) => {
   const [searchValue, setSearchValue] = useState<string>("");
-  const debouncedValue = useDebounce<string>(searchValue, 500)
+  const debouncedValue = useDebounce<string>(searchValue, 500);
 
   const filteredMovies = movies.filter((movie) =>
     movie.name.toLowerCase().includes(debouncedValue.toLowerCase())
@@ -38,12 +31,13 @@ const MovieList: FC<{ movies: IMovie[] }> = ({ movies }) => {
       <div>
         <ItemsList
           items={filteredMovies}
-          renderItem={(movie: IMovie) => (
+          renderItem={(movie: FullMovieData) => (
             <MovieCard
               key={movie.id}
               id={movie.id}
               name={movie.name}
               poster={movie.poster.url}
+              rating={movie.rating.imdb}
             />
           )}
         />
