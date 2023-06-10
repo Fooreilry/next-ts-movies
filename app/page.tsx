@@ -15,7 +15,7 @@ export default async function Home() {
       <div>
         <ItemsList
           items={movies}
-          renderItem={(movie: any) => (
+          renderItem={(movie: FullMovieData) => (
             <MovieCard
               key={movie.id}
               id={movie.id}
@@ -25,7 +25,6 @@ export default async function Home() {
           )}
         />
       </div>
-      <MovieCard />
     </main>
   );
 }
@@ -33,5 +32,6 @@ export default async function Home() {
 async function getMovies(): Promise<FullMovieData[]> {
   const moviesResponse = await MoviesServices.getAllMovies();
   const movies = moviesResponse.docs;
+
   return movies;
 }
