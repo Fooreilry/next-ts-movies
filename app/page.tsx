@@ -21,5 +21,6 @@ export default async function Home() {
 async function getMovies(): Promise<FullMovieData[]> {
   const moviesResponse = await MoviesServices.getAllMovies();
   const movies = moviesResponse.docs;
+
   return movies;
 }
