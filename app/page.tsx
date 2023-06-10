@@ -21,6 +21,8 @@ export default async function Home() {
               id={movie.id}
               name={movie.name}
               poster={movie.poster.url}
+              type={movie.type}
+              rating={movie.rating.kp}
             />
           )}
         />

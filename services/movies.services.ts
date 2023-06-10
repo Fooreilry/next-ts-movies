@@ -8,7 +8,7 @@ const headers = {
 export const MoviesServices = {
   async getAllMovies(): Promise<GetMoviesResponse> {
     try {
-      const request = await fetch(`${process.env.BASE_URL}/v1.3/movie`, {
+      const request = await fetch(`${process.env.BASE_URL}/v1.3/movie?limit=50`, {
         method: "GET",
         headers: headers,
       });
