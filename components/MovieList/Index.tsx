@@ -21,8 +21,9 @@ const MovieList: FC<{ movies: FullMovieData[] }> = ({ movies }) => {
     event.preventDefault();
     console.log(`Searching for: ${searchValue}`);
   };
+
   return (
-    <>
+    <div className="max-w-screen-xl mx-auto">
       <Input
         searchHandle={searchHandle}
         handleSubmit={handleSubmit}
@@ -31,6 +32,9 @@ const MovieList: FC<{ movies: FullMovieData[] }> = ({ movies }) => {
       <div>
         <ItemsList
           items={filteredMovies}
+          className={
+            "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center mt-10"
+          }
           renderItem={(movie: FullMovieData) => (
             <MovieCard
               key={movie.id}
@@ -42,7 +46,7 @@ const MovieList: FC<{ movies: FullMovieData[] }> = ({ movies }) => {
           )}
         />
       </div>
-    </>
+    </div>
   );
 };
 

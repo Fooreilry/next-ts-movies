@@ -1,16 +1,15 @@
-import React from 'react'
+import React from "react";
 
-interface ItemsListProps<T>{
-    items: T[],
-    renderItem:(item: T) => React.ReactNode
+interface ItemsListProps<T> {
+  items: T[];
+  renderItem: (item: T) => React.ReactNode;
+  className: string;
 }
 
-const ItemsList:React.FC<T> = (props:ItemsListProps<T>) => {
+const ItemsList: React.FC<T> = (props: ItemsListProps<T>) => {
   return (
-      <div>
-          {props.items.map(props.renderItem)}
-    </div>
-  )
-}
+    <div className={props.className}>{props.items.map(props.renderItem)}</div>
+  );
+};
 
-export default ItemsList
+export default ItemsList;
