@@ -9,16 +9,20 @@ type Item = {
 };
 
 const Switch: FC = () => {
-  const [active, setActive] = useState<number>(0);
+  const [active, setActive] = useState<number>(() => {
+    const storedIndex = sessionStorage.getItem("activeIndex");
+    return storedIndex !== null ? parseInt(storedIndex) : 0;
+  });
 
   const items: Item[] = [
     { label: "All", path: "/" },
-    { label: "Movies", path: "/" },
-    { label: "TV Shows", path: "/" },
+    { label: "Movies", path: "/movies" },
+    { label: "TV Shows", path: "/tvshows" },
   ];
 
   const activeIndex = (index: number) => {
     setActive(index);
+    sessionStorage.setItem("activeIndex", index.toString());
   };
 
   return (
