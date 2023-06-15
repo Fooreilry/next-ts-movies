@@ -1,11 +1,9 @@
 "use client";
 import { FC, useState } from "react";
-import Link from "next/link";
 import styles from "./Switch.module.scss";
 
 type Item = {
   label: string;
-  path: string;
 };
 
 const Switch: FC = () => {
@@ -15,9 +13,9 @@ const Switch: FC = () => {
   });
 
   const items: Item[] = [
-    { label: "All", path: "/" },
-    { label: "Movies", path: "/movies" },
-    { label: "TV Shows", path: "/tvshows" },
+    { label: "All" },
+    { label: "Movies" },
+    { label: "TV Shows" },
   ];
 
   const activeIndex = (index: number) => {
@@ -34,7 +32,7 @@ const Switch: FC = () => {
             className={active === index ? styles.active : ""}
             onClick={() => activeIndex(index)}
           >
-            <Link href={item.path}>{item.label}</Link>
+            <span>{item.label}</span>
           </li>
         ))}
       </ul>
