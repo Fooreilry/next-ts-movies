@@ -11,10 +11,10 @@ interface MovieCardProps {
   name: string;
   poster: string;
   type: string;
-  rating: number
+  rating: number;
 }
 
-const MovieCard: FC<MovieCardProps> = ({name, poster, type, id, rating}) => {
+const MovieCard: FC<MovieCardProps> = ({ name, poster, type, id, rating }) => {
   return (
     <div className={styles.movieCard}>
       <div className={styles.rating}>
