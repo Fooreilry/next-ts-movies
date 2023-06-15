@@ -68,7 +68,7 @@ async function page({ params }) {
                     {minutesInHours(movie.movieLength)}
                   </p>
                 </div>
-                <div>
+                <div className='pb-24'>
                   <p className="font-normal text-base text-gray-500">Genres:</p>
                   <p className="font-normal text-xl text-gray-200">
                     {movie.genres.map((genre) => genre.name).join(", ")}
@@ -85,7 +85,7 @@ async function page({ params }) {
 
 export default page
 
-async function getMovie(id): Promise<FullMovieData> {
+async function getMovie(id: number): Promise<FullMovieData> {
     const movieData = MoviesServices.getMovie(id)
 
     return movieData
