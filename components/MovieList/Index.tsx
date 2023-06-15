@@ -1,6 +1,5 @@
 "use client";
 import { FC, useState } from "react";
-import useDebounce from "@/hooks/useDebounce/Index";
 import Input from "../UI/Input/Index";
 import ItemsList from "../ItemsList/ItemsList";
 import MovieCard from "../UI/MovieCard/Index";
@@ -23,20 +22,21 @@ const MovieList: FC<{ movies: FullMovieData[] }> = ({ movies }) => {
   };
 
   return (
+    <section className="MovieList">
     <div className="max-w-screen-xl mx-auto">
       <Heading heading={"MaileHereko"} />
       <p>
-        List of movies and TV Shows, I, Pramod Poudel have watched till date.
+        List of movies and TV Shows, I, <span>Pramod Poudel</span> have watched till date.
         Explore what I have watched and also feel free to make a suggestion. 😉
       </p>
-      <div className="mt-20">
+      <div className="mt-8">
         <Input
           searchHandle={searchHandle}
           handleSubmit={handleSubmit}
           searchValue={searchValue}
         />
       </div>
-      <div className="mt-10">
+      <div className="mt-24">
         <Switch />
       </div>
       <div>
@@ -57,6 +57,7 @@ const MovieList: FC<{ movies: FullMovieData[] }> = ({ movies }) => {
         />
       </div>
     </div>
+    </section>
   );
 };
 
