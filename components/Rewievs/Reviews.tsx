@@ -1,8 +1,12 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import styles from './Reviews.module.scss'
 import Image from 'next/image';
-// TODO: возможно стоит реализовать функционал оценивания черзе этот компонент
-const Reviews: FC = ({rating}: number) => {
+
+type ReviewsProps = {
+  rating: number;
+}
+// TODO: возможно стоит реализовать функционал оценивания через этот компонент
+const Reviews: FC<ReviewsProps> = ({rating}) => {
   return (
       <div className={styles.reviews}>
         <Image src="/image/star.svg" width={16} height={16} alt="star" />
