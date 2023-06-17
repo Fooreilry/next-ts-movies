@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.style}>
         <Navbar/>
         <main className='container mx-auto px-4'>{children}</main>
       </body>
