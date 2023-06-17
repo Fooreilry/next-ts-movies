@@ -20,6 +20,7 @@ const MovieCard: FC<MovieCardProps> = ({ name, poster, type, id, rating }) => {
       <div className={styles.rating}>
         <Reviews rating={rating} />
       </div>
+      <Link href={`/${type}/${id}`}>
       <Image
         className="rounded-xl mt-2"
         src={poster}
@@ -27,8 +28,6 @@ const MovieCard: FC<MovieCardProps> = ({ name, poster, type, id, rating }) => {
         height={400}
         alt="widow"
       />
-
-      <Link href={`/${type}/${id}`}>
         <p className="absolute text-white">{name}</p>
       </Link>
       <div className={styles.add}>
