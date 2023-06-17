@@ -8,7 +8,7 @@ import { minutesInHours } from '@/utils/helpers/minutesInHours'
  
 // TODO: сделать компонент для списка информации о филме
 
-async function page({ params }) {
+async function page({ params }: { params: { id: number }}) {
     const movie = await getMovie(params.id)
   return (
     <div className="w-full">
@@ -17,7 +17,7 @@ async function page({ params }) {
         <div className={styles.page_content}>
           <div className={styles.movie_title_bg}>
             <div className="p-10 flex gap-2 flex-col">
-              <p className=" text-violet-400 font-normal text-sm">{`MaileHereko / ${params.type} / ${movie.name}`}</p>
+              <p className=" text-violet-400 font-normal text-sm">{`MaileHereko / ${movie.type} / ${movie.name}`}</p>
               <h2 className="text-white font-semibold text-4xl">
                 {movie.name}
               </h2>
