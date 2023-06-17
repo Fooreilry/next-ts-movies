@@ -52,6 +52,7 @@ const MovieList: FC<{ movies: FullMovieData[] }> = ({ movies }) => {
               name={movie.name}
               poster={movie.poster.url}
               rating={movie.rating.imdb}
+              type={movie.type}
             />
           )}
         />
