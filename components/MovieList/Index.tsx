@@ -17,22 +17,38 @@ interface MovieListProps {
 
 const MovieList: FC<MovieListProps> = ({ movies, searchParams }) => {
   const [searchValue, setSearchValue] = useState<string>("");
+  const [name, setName] = useState<string>('')
 
   const router = useRouter()
 
-  const filteredMovies = movies.filter((movie) =>
-    movie.name.toLowerCase().includes(searchValue.toLowerCase())
-  );
+  const updateSearchQueryParams = (name: string) => {
+    const searchParams: URLSearchParams = new URLSearchParams(window.location.search)
+
+    if(name) {
+      searchParams.set('name', name)
+    } else {
+      searchParams.delete('name')
+    }
+    searchParams.delete('page');
+
+    const newPathName: string = `${window.location.pathname}?${searchParams.toString()}`
+
+    router.push(newPathName)
+  }
+
   const searchHandle = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchValue(event.target.value);
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
+    setName(searchValue); 
+    updateSearchQueryParams(searchValue.toLowerCase());
   };
 
 const totalPages: number = 10;
 const pageNumbers: number[] = Array.from(Array(totalPages), (_, index) => index + 1);
+const isSearchActive: boolean = !!searchParams.name;
 
   return (
     <section className="MovieList">
@@ -54,7 +70,7 @@ const pageNumbers: number[] = Array.from(Array(totalPages), (_, index) => index 
       </div>
       <div>
         <ItemsList
-          items={filteredMovies}
+          items={movies}
           className={
             "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center mt-10"
           }
@@ -69,29 +85,31 @@ const pageNumbers: number[] = Array.from(Array(totalPages), (_, index) => index 
             />
           )}
         />
-          <div className="flex justify-center mt-8 mb-8">
-            {pageNumbers.map((pageNumber) =>
-              pageNumber === parseInt(searchParams.page || "1") ? (
-                <button
-                  key={pageNumber}
-                  className="mx-1 w-10 h-10 rounded bg-purple-500 hover:bg-purple-600 text-white"
-                >
-                  {pageNumber}
-                </button>
-              ) : (
-                <button
-                  key={pageNumber}
-                  onClick={() => {
-                    const newPathnamePage = updateSearchParams("page", `${pageNumber}`);
-                    router.push(newPathnamePage);
-                  }}
-                  className="mx-1 w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 text-black"
-                >
-                  {pageNumber}
-                </button>
-              )
-            )}
-          </div>
+        {!isSearchActive && (
+            <div className="flex justify-center mt-8 mb-8">
+              {pageNumbers.map((pageNumber) =>
+                pageNumber === parseInt(searchParams.page || "1") ? (
+                  <button
+                    key={pageNumber}
+                    className="mx-1 w-10 h-10 rounded bg-purple-500 hover:bg-purple-600 text-white"
+                  >
+                    {pageNumber}
+                  </button>
+                ) : (
+                  <button
+                    key={pageNumber}
+                    onClick={() => {
+                      const newPathnamePage = updateSearchParams("page", `${pageNumber}`);
+                      router.push(newPathnamePage);
+                    }}
+                    className="mx-1 w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 text-black"
+                  >
+                    {pageNumber}
+                  </button>
+                )
+              )}
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -1,16 +1,17 @@
 import { MoviesServices } from "@/services/movies.services";
-import { FullMovieData } from "@/types/Responses";
+import { FullMovieData, GetMoviesResponse } from "@/types/Responses";
 import { filtersProps } from "@/services/movies.services";
 import MovieList from "@/components/MovieList/Index";
 
 
-export interface HomeProps {
+interface HomeProps {
   searchParams: filtersProps;
 }
 
 export default async function Home({searchParams}: HomeProps) {
-  const movies = await getMovies({
+  const movies: FullMovieData[] = await getMovies({
     page: searchParams.page || '1',
+    name: searchParams.name || ''
   });
   return (
     <main>
@@ -20,7 +21,7 @@ export default async function Home({searchParams}: HomeProps) {
 }
 
 async function getMovies(filters: filtersProps): Promise<FullMovieData[]> {
-  const moviesResponse = await MoviesServices.getAllMovies(filters);
-  const movies = moviesResponse.docs;
+  const moviesResponse: GetMoviesResponse = await MoviesServices.getAllMovies(filters);
+  const movies: FullMovieData[] = moviesResponse.docs;
   return movies;
 }
