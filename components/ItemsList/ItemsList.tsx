@@ -1,4 +1,6 @@
-import React from "react";
+import { FC } from "react";
+import { FullMovieData } from "@/types/Responses";
+
 
 interface ItemsListProps<T> {
   items: T[];
@@ -6,7 +8,7 @@ interface ItemsListProps<T> {
   className: string;
 }
 
-const ItemsList: React.FC<T> = (props: ItemsListProps<T>) => {
+const ItemsList: FC<ItemsListProps<FullMovieData>> = (props: ItemsListProps<FullMovieData>) => {
   return (
     <div className={props.className}>{props.items.map(props.renderItem)}</div>
   );

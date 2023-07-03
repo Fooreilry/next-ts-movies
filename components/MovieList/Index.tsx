@@ -6,20 +6,33 @@ import MovieCard from "../UI/MovieCard/Index";
 import { FullMovieData } from "@/types/Responses";
 import Heading from "../UI/Heading/Index";
 import Switch from "../UI/Switch/Index";
+import { useRouter } from "next/navigation"
+import { updateSearchParams } from "@/utils/searchParams"
+import { filtersProps } from "@/services/movies.services";
 
-const MovieList: FC<{ movies: FullMovieData[] }> = ({ movies }) => {
+interface MovieListProps {
+  movies: FullMovieData[];
+  searchParams: filtersProps;
+}
+
+const MovieList: FC<MovieListProps> = ({ movies, searchParams }) => {
   const [searchValue, setSearchValue] = useState<string>("");
+
+  const router = useRouter()
 
   const filteredMovies = movies.filter((movie) =>
     movie.name.toLowerCase().includes(searchValue.toLowerCase())
   );
-  const searchHandle = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const searchHandle = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchValue(event.target.value);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
   };
+
+const totalPages: number = 10;
+const pageNumbers: number[] = Array.from(Array(totalPages), (_, index) => index + 1);
 
   return (
     <section className="MovieList">
@@ -56,8 +69,31 @@ const MovieList: FC<{ movies: FullMovieData[] }> = ({ movies }) => {
             />
           )}
         />
+          <div className="flex justify-center mt-8 mb-8">
+            {pageNumbers.map((pageNumber) =>
+              pageNumber === parseInt(searchParams.page || "1") ? (
+                <button
+                  key={pageNumber}
+                  className="mx-1 w-10 h-10 rounded bg-purple-500 hover:bg-purple-600 text-white"
+                >
+                  {pageNumber}
+                </button>
+              ) : (
+                <button
+                  key={pageNumber}
+                  onClick={() => {
+                    const newPathnamePage = updateSearchParams("page", `${pageNumber}`);
+                    router.push(newPathnamePage);
+                  }}
+                  className="mx-1 w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 text-black"
+                >
+                  {pageNumber}
+                </button>
+              )
+            )}
+          </div>
+        </div>
       </div>
-    </div>
     </section>
   );
 };

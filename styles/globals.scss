@@ -15,22 +15,9 @@ body {
 input:focus {
   outline: none;
 }
+
 img {
   max-width: 100%;
-}
-
-.notFound {
-  h1 {
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 56px;
-  }
-  p {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: #8E95A9;
-  }
 }
 
 .MovieList {

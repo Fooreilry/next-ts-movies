@@ -1,8 +1,8 @@
 import { FC } from "react";
-import styles from "./MovieCard.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import Reviews from "@/components/Rewievs/Reviews";
+import styles from './MovieCard.module.scss'
 
 //TODO: переделать компонент на клиентский!!!
 
