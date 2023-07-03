@@ -1,6 +1,5 @@
 import { MoviesServices } from '@/services/movies.services'
 import { FullMovieData } from '@/types/Responses'
-import React from 'react'
 import styles from './MoviePage.module.scss'
 import Image from 'next/image'
 import Reviews from '@/components/Rewievs/Reviews'

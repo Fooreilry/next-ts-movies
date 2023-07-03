@@ -1,14 +1,19 @@
 import { FullMovieData, GetMoviesResponse } from "@/types/Responses";
 
+export type filtersProps = {
+  page: string;
+}
+
 const headers = {
   "Content-Type": "application/json",
   ...(process.env.TOKEN && { "X-API-KEY": process.env.TOKEN }),
 };
 
 export const MoviesServices = {
-  async getAllMovies(): Promise<GetMoviesResponse> {
+  async getAllMovies(filters: filtersProps): Promise<GetMoviesResponse> {
+    const { page } = filters
     try {
-      const request = await fetch(`${process.env.BASE_URL}/v1.3/movie?limit=50`, {
+      const request = await fetch(`${process.env.BASE_URL}/v1.3/movie?page=${page}&limit=24`, {
         method: "GET",
         headers: headers,
       });
