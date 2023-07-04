@@ -3,6 +3,7 @@ import { FullMovieData, GetMoviesResponse } from "@/types/Responses";
 export type filtersProps = {
   page: string;
   name: string;
+  type: string;
 }
 
 const headers = {
@@ -12,9 +13,9 @@ const headers = {
 
 export const MoviesServices = {
   async getAllMovies(filters: filtersProps): Promise<GetMoviesResponse> {
-    const { page, name } = filters
+    const { page, name, type } = filters
     try {
-      const request: Response = await fetch(`${process.env.BASE_URL}/v1.3/movie?name=${name}&page=${page}&limit=24`, {
+      const request: Response = await fetch(`${process.env.BASE_URL}/v1.3/movie?name=${name}&type=${type}&page=${page}&limit=24`, {
         method: "GET",
         headers: headers,
       });

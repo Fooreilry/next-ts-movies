@@ -11,7 +11,8 @@ interface HomeProps {
 export default async function Home({searchParams}: HomeProps) {
   const movies: FullMovieData[] = await getMovies({
     page: searchParams.page || '1',
-    name: searchParams.name || ''
+    name: searchParams.name || '',
+    type: searchParams.type || 'movie',
   });
   return (
     <main>

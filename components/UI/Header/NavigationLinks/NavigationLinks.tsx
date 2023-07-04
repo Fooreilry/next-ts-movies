@@ -2,11 +2,12 @@ import { FC } from 'react';
 import Link from 'next/link';
 import Image from "next/image";
 import { mainNavigation } from "@/utils/navigationLinks";
+import { NavigationLink } from '@/utils/navigationLinks';
 
 const NavigationLinks:FC = () => {
   return (
     <ul className="flex p-0 items-center">
-      {mainNavigation.map((route, id) => (
+      {mainNavigation.map((route: NavigationLink, id: number) => (
         <li key={id}>
           <Link
             className="px-4 py-3 text-stone-300 text-base font-semibold"
