@@ -45,7 +45,7 @@ const isSearchActive: boolean = !!searchParams.name;
               id={movie.id}
               name={movie.name}
               poster={movie.poster.url}
-              rating={movie.rating.imdb}
+              rating={movie.rating.kp}
               type={movie.type}
             />
           )}
