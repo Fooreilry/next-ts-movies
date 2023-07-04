@@ -3,7 +3,6 @@ import { FullMovieData, GetMoviesResponse } from "@/types/Responses";
 import { filtersProps } from "@/services/movies.services";
 import MovieList from "@/components/MovieList/Index";
 
-
 interface HomeProps {
   searchParams: filtersProps;
 }

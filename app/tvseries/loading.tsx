@@ -6,7 +6,7 @@ const MovieLoading = () => {
   return (
     <section className="MovieList">
       <div className="max-w-screen-xl mx-auto">
-        <Heading heading="Movies" />
+        <Heading heading="TV-Series" />
         <div className="mt-8">
           <Input />
         </div>

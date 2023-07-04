@@ -19,8 +19,7 @@ const Switch: FC = () => {
       updateSearchSortParams("type", items[index].type);
     } else {
       updateSearchSortParams("type", "");
-    }
-    
+    }  
   };
 
   const items: { label: string; type: string }[] = [

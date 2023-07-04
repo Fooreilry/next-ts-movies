@@ -5,7 +5,7 @@ export interface NavigationLink {
 
 export const mainNavigation: NavigationLink[] = [
   { path: "/movies", name: "Movies" },
-  { path: "/tvshows", name: "Movies" },
+  { path: "/tvseries", name: "TV-Series" },
 ];
 
 export const accountNavigation: NavigationLink[] = [
