@@ -1,21 +1,21 @@
 import { MoviesServices } from "@/services/movies.services";
 import { FullMovieData, GetMoviesResponse } from "@/types/Responses";
 import { filtersProps } from "@/services/movies.services";
-import MoviesList from "@/components/pages/MoviesList";
+import TVSeriesList from "@/components/pages/TVSeries";
 
-interface MoviesProps {
+interface TVSeriesPageProps {
   searchParams: filtersProps;
 }
 
-export default async function MoviesPage({searchParams}: MoviesProps) {
+export default async function TVSeriesPage({searchParams}: TVSeriesPageProps) {
   const movies: FullMovieData[] = await getMovies({
     page: searchParams.page || '1',
     name: searchParams.name || '',
-    type: searchParams.type || 'movie',
+    type: searchParams.type || 'tv-series',
   });
   return (
     <main>
-      <MoviesList movies={movies} searchParams={searchParams}/>
+      <TVSeriesList movies={movies} searchParams={searchParams}/>
     </main>
   )
 }

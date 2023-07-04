@@ -13,13 +13,13 @@ interface MovieListProps {
   searchParams: filtersProps;
 }
 
-const MoviesList: FC<MovieListProps> = ({ movies, searchParams }) => {
+const TVSeriesList: FC<MovieListProps> = ({ movies, searchParams }) => {
   const isSearchActive: boolean = !!searchParams.name;
 
   return (
     <section className="MovieList">
     <div className="max-w-screen-xl mx-auto">
-      <Heading heading="Movies" />
+      <Heading heading="TV-Series" />
       <div className="mt-8">
         <Input/>
       </div>
@@ -49,4 +49,4 @@ const MoviesList: FC<MovieListProps> = ({ movies, searchParams }) => {
   );
 };
 
-export default MoviesList;
+export default TVSeriesList;
