@@ -1,10 +1,9 @@
 import { MoviesServices } from '@/services/movies.services'
 import { FullMovieData } from '@/types/Responses'
-import styles from './MoviePage.module.scss'
 import Image from 'next/image'
 import Reviews from '@/components/Rewievs/Reviews'
 import { minutesInHours } from '@/utils/helpers/minutesInHours'
- 
+import styles from './MoviePage.module.scss'
 // TODO: сделать компонент для списка информации о филме
 
 async function page({ params }: { params: { id: number }}) {
@@ -86,6 +85,5 @@ export default page
 
 async function getMovie(id: number): Promise<FullMovieData> {
     const movieData = MoviesServices.getMovie(id)
-
     return movieData
 }

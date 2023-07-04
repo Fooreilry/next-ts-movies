@@ -1,12 +1,12 @@
-export const updateSearchParams = (type: string, value: string) => {
+export const updateSearchParams = (type: string, value: string): string => {
     // Получить текущие параметры поиска URL
-    const searchParams = new URLSearchParams(window.location.search);
+    const searchParams: URLSearchParams = new URLSearchParams(window.location.search);
   
     // Установить указанный параметр поиска в заданное значение
     searchParams.set(type, value);
   
     // Установить указанный параметр поиска в заданное значение
-    const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
+    const newPathname: string = `${window.location.pathname}?${searchParams.toString()}`;
   
     return newPathname;
   };

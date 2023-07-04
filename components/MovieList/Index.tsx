@@ -16,12 +16,12 @@ interface MovieListProps {
 }
 
 const MovieList: FC<MovieListProps> = ({ movies, searchParams }) => {
-  const [searchValue, setSearchValue] = useState<string>("");
+  const [searchValue, setSearchValue] = useState<string>('');
   const [name, setName] = useState<string>('')
 
   const router = useRouter()
 
-  const updateSearchQueryParams = (name: string) => {
+  const updateSearchQueryParams = (name: string): void => {
     const searchParams: URLSearchParams = new URLSearchParams(window.location.search)
 
     if(name) {
@@ -47,7 +47,7 @@ const MovieList: FC<MovieListProps> = ({ movies, searchParams }) => {
   };
 
 const totalPages: number = 10;
-const pageNumbers: number[] = Array.from(Array(totalPages), (_, index) => index + 1);
+const pageNumbers: number[] = Array.from(Array(totalPages), (_, index: number) => index + 1);
 const isSearchActive: boolean = !!searchParams.name;
 
   return (
@@ -87,7 +87,7 @@ const isSearchActive: boolean = !!searchParams.name;
         />
         {!isSearchActive && (
             <div className="flex justify-center mt-8 mb-8">
-              {pageNumbers.map((pageNumber) =>
+              {pageNumbers.map((pageNumber: number) =>
                 pageNumber === parseInt(searchParams.page || "1") ? (
                   <button
                     key={pageNumber}
@@ -99,7 +99,7 @@ const isSearchActive: boolean = !!searchParams.name;
                   <button
                     key={pageNumber}
                     onClick={() => {
-                      const newPathnamePage = updateSearchParams("page", `${pageNumber}`);
+                      const newPathnamePage: string = updateSearchParams("page", `${pageNumber}`);
                       router.push(newPathnamePage);
                     }}
                     className="mx-1 w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 text-black"
