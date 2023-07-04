@@ -3,28 +3,29 @@ import { FullMovieData } from '@/types/Responses'
 import Image from 'next/image'
 import Reviews from '@/components/Rewievs/Reviews'
 import { minutesInHours } from '@/utils/helpers/minutesInHours'
-import styles from './MoviePage.module.scss'
+
+
 // TODO: сделать компонент для списка информации о филме
 
 async function page({ params }: { params: { id: number }}) {
     const movie = await getMovie(params.id)
   return (
-    <div className="w-full">
+    <div className="w-full max-w-screen-xl mx-auto">
       <div className=" mt-10 relative">
-        <div className={styles.movie_poster}></div>
-        <div className={styles.page_content}>
-          <div className={styles.movie_title_bg}>
-            <div className="p-10 flex gap-2 flex-col">
+        <Image className='mx-auto rounded-3xl' src={movie.backdrop.url} width={1200} height={480} alt='poster'/>
+        <div className='w-full absolute top-96 pt-0 pb-0 pl-20 pr-20 '>
+          <div className='bg-gray-800 bg-opacity-80 backdrop-blur-lg rounded-xl ml-12 w-7/12'>
+            <div className="p-10 flex gap-2 flex-col mt-48">
               <p className=" text-violet-400 font-normal text-sm">{`MaileHereko / ${movie.type} / ${movie.name}`}</p>
               <h2 className="text-white font-semibold text-4xl">
                 {movie.name}
               </h2>
             </div>
           </div>
-          <div className="mt-10 flex gap-10">
+          <div className="mt-16 flex gap-10">
             <div className="w-2/4">
               <Image
-                className="rounded-xl mt-2"
+                className="rounded-3xl mt-2"
                 src={movie.poster.url}
                 width={480}
                 height={720}
