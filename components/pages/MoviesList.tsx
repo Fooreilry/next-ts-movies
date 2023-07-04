@@ -5,7 +5,6 @@ import ItemsList from "../ItemsList/ItemsList";
 import MovieCard from "../UI/MovieCard/Index";
 import { FullMovieData } from "@/types/Responses";
 import Heading from "../UI/Heading/Index";
-import Switch from "../UI/Switch/Index";
 import { filtersProps } from "@/services/movies.services";
 import Pagination from "../UI/Pagination/Index";
 
@@ -14,9 +13,8 @@ interface MovieListProps {
   searchParams: filtersProps;
 }
 
-const MovieList: FC<MovieListProps> = ({ movies, searchParams }) => {
- 
-const isSearchActive: boolean = !!searchParams.name;
+const MoviesList: FC<MovieListProps> = ({ movies, searchParams }) => {
+  const isSearchActive: boolean = !!searchParams.name;
 
   return (
     <section className="MovieList">
@@ -27,11 +25,7 @@ const isSearchActive: boolean = !!searchParams.name;
         Explore what I have watched and also feel free to make a suggestion. 😉
       </p>
       <div className="mt-8">
-        <Input
-        />
-      </div>
-      <div className="mt-24">
-        <Switch />
+        <Input/>
       </div>
       <div>
         <ItemsList
@@ -51,7 +45,7 @@ const isSearchActive: boolean = !!searchParams.name;
           )}
         />
         {!isSearchActive && (
-         <Pagination searchParams={searchParams}/>
+            <Pagination searchParams={searchParams}/>
           )}
         </div>
       </div>
@@ -59,4 +53,4 @@ const isSearchActive: boolean = !!searchParams.name;
   );
 };
 
-export default MovieList;
+export default MoviesList;
