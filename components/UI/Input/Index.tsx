@@ -6,7 +6,6 @@ import Image from "next/image";
 
 const Input: FC = () => {
   const [searchValue, setSearchValue] = useState<string>('');
-  const [name, setName] = useState<string>('')
 
   const router = useRouter()
 
@@ -31,7 +30,7 @@ const Input: FC = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    setName(searchValue); 
+    setSearchValue(searchValue); 
     updateSearchQueryParams(searchValue.toLowerCase());
   };
   
