@@ -23,9 +23,9 @@ const Switch: FC = () => {
   };
 
   const items: { label: string; type: string }[] = [
-    { label: "Movie", type: "movie" },
+    { label: "Movies", type: "movie" },
     { label: "TV-Series", type: "tv-series" },
-    { label: "Cartoon", type: "cartoon" }, 
+    { label: "Cartoons", type: "cartoon" }, 
   ];
 
 const updateSearchSortParams = (param: string, value: string): void => {
