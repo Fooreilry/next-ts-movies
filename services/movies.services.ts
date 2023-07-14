@@ -15,7 +15,7 @@ export const MoviesServices = {
   async getAllMovies(filters: filtersProps): Promise<GetMoviesResponse> {
     const { page, name, type } = filters
     try {
-      const request: Response = await fetch(`${process.env.BASE_URL}/v1.3/movie?name=${name}&type=${type}&page=${page}&limit=24`, {
+      const request = await fetch(`${process.env.BASE_URL}/v1.3/movie?name=${name}&type=${type}&page=${page}&limit=24`, {
         method: "GET",
         headers: headers,
       });
@@ -28,7 +28,7 @@ export const MoviesServices = {
   },
   async getMovie(id: number): Promise<FullMovieData> {
     try {
-      const request: Response = await fetch(`${process.env.BASE_URL}/v1.3/movie/${id}`, {
+      const request = await fetch(`${process.env.BASE_URL}/v1.3/movie/${id}`, {
         method: "GET",
         headers: headers,
       });
