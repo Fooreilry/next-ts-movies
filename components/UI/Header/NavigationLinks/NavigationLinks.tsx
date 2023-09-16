@@ -1,10 +1,9 @@
-import { FC } from 'react';
 import Link from 'next/link';
 import Image from "next/image";
 import { mainNavigation } from "@/utils/navigationLinks";
 import { NavigationLink } from '@/utils/navigationLinks';
 
-const NavigationLinks:FC = () => {
+const NavigationLinks = () => {
   return (
     <ul className="flex p-0 items-center">
       {mainNavigation.map((route: NavigationLink, id: number) => (

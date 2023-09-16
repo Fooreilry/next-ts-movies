@@ -1,9 +1,13 @@
-import { Poppins } from 'next/font/google'
-import { NextFont } from 'next/dist/compiled/@next/font';
-import Navbar from '@/components/UI/Header/Navbar';
-import '@/styles/globals.scss'
+import { Poppins } from "next/font/google";
+import { NextFont } from "next/dist/compiled/@next/font";
+import Navbar from "@/components/UI/Header/Navbar";
+import "@/styles/globals.scss";
 
-const inter: NextFont = Poppins({ weight: ["400", "600", "700"], style: ["normal"], subsets: ["latin"] }); 
+const inter: NextFont = Poppins({
+  weight: ["400", "600", "700"],
+  style: ["normal"],
+  subsets: ["latin"],
+});
 
 // оставлено для лучших времен
 //export const metadata = {
@@ -14,13 +18,13 @@ const inter: NextFont = Poppins({ weight: ["400", "600", "700"], style: ["normal
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.style}>
-        <Navbar/>
-        <main className='container mx-auto px-4'>{children}</main>
+      <body className={`${inter.style}`}>
+        <Navbar />
+        <main className="container mx-auto px-4">{children}</main>
       </body>
     </html>
   );

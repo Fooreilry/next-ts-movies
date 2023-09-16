@@ -1,6 +1,5 @@
-import { FC } from "react";
 import styles from "./Skeleton.module.scss";
-const Skeleton: FC = () => {
+const Skeleton = () => {
   return (
     <div className={styles.skeleton}>
       <div className={styles.skeleton__reviews}></div>

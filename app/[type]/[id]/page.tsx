@@ -1,20 +1,24 @@
-import { MoviesServices } from '@/services/movies.services'
-import { FullMovieData } from '@/types/Responses'
-import Image from 'next/image'
-import Reviews from '@/components/Rewievs/Reviews'
-import { minutesInHours } from '@/utils/helpers/minutesInHours'
-
+import { MoviesServices } from "@/services/movies.services";
+import Image from "next/image";
+import Reviews from "@/components/Rewievs/Reviews";
+import { minutesInHours } from "@/utils/helpers/minutesInHours";
 
 // TODO: сделать компонент для списка информации о филме
 
-async function page({ params }: { params: { id: number }}) {
-    const movie = await getMovie(params.id)
+async function page({ params }: { params: { id: number } }) {
+  const movie = await MoviesServices.getMovie(params.id);
   return (
     <div className="w-full max-w-screen-xl mx-auto">
       <div className=" mt-10 relative">
-        <Image className='mx-auto rounded-3xl' src={movie.backdrop.url} width={1200} height={480} alt='poster'/>
-        <div className='w-full absolute top-96 pt-0 pb-0 pl-20 pr-20 '>
-          <div className='bg-gray-800 bg-opacity-80 backdrop-blur-lg rounded-xl ml-12 w-7/12'>
+        <Image
+          className="mx-auto rounded-3xl"
+          src={movie.backdrop.url}
+          width={1200}
+          height={480}
+          alt="poster"
+        />
+        <div className="w-full absolute top-96 pt-0 pb-0 pl-20 pr-20 ">
+          <div className="bg-gray-800 bg-opacity-80 backdrop-blur-lg rounded-xl ml-12 w-7/12">
             <div className="p-10 flex gap-2 flex-col mt-48">
               <p className=" text-violet-400 font-normal text-sm">{`MaileHereko / ${movie.type} / ${movie.name}`}</p>
               <h2 className="text-white font-semibold text-4xl">
@@ -56,7 +60,9 @@ async function page({ params }: { params: { id: number }}) {
                     Countries:
                   </p>
                   <p className="font-normal text-xl text-gray-200">
-                    {movie.countries.map(countrie => countrie.name).join(', ')}
+                    {movie.countries
+                      .map((countrie) => countrie.name)
+                      .join(", ")}
                   </p>
                 </div>
                 <div>
@@ -67,7 +73,7 @@ async function page({ params }: { params: { id: number }}) {
                     {minutesInHours(movie.movieLength)}
                   </p>
                 </div>
-                <div className='pb-24'>
+                <div className="pb-24">
                   <p className="font-normal text-base text-gray-500">Genres:</p>
                   <p className="font-normal text-xl text-gray-200">
                     {movie.genres.map((genre) => genre.name).join(", ")}
@@ -82,9 +88,4 @@ async function page({ params }: { params: { id: number }}) {
   );
 }
 
-export default page
-
-async function getMovie(id: number): Promise<FullMovieData> {
-    const movieData = MoviesServices.getMovie(id)
-    return movieData
-}
+export default page;

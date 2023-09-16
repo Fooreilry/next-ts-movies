@@ -1,8 +1,7 @@
-import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Reviews from "@/components/Rewievs/Reviews";
-import styles from './MovieCard.module.scss'
+import styles from "./MovieCard.module.scss";
 
 //TODO: переделать компонент на клиентский!!!
 
@@ -14,20 +13,20 @@ interface MovieCardProps {
   rating: number;
 }
 
-const MovieCard: FC<MovieCardProps> = ({ name, poster, type, id, rating }) => {
+const MovieCard = ({ name, poster, type, id, rating }: MovieCardProps) => {
   return (
     <div className={styles.movieCard}>
       <div className={styles.rating}>
         <Reviews rating={rating} />
       </div>
       <Link href={`/${type}/${id}`}>
-      <Image
-        className="rounded-xl mt-2"
-        src={poster}
-        width={266}
-        height={400}
-        alt="widow"
-      />
+        <Image
+          className="rounded-xl mt-2"
+          src={poster}
+          width={266}
+          height={400}
+          alt="widow"
+        />
         <p className="absolute text-white">{name}</p>
       </Link>
       <div className={styles.add}>

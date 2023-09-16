@@ -11,8 +11,8 @@ const NotFound = () => {
         Lost your way?
       </h1>
       <p className="flex items-center justify-center pt-6 font-normal text-base leading-6 text-gray-600">
-        Oops! This is awkward. You are looking for something that doesn't
-        actually exist.
+        &lsquo;Oops! This is awkward. You are looking for something that
+        doesn&rsquo;t actually exist.&lsquo;
       </p>
       <div className="flex items-center justify-center pt-6">
         <ButtonLink buttontext="Go Home" />
